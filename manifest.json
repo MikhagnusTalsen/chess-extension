@@ -1,0 +1,35 @@
+{
+    "manifest_version": 3,
+    "name": "chess-extension",
+    "version": "1.0.0",
+    "description": "Analyze your games on wintrchess.com in a click",
+    "icons": {
+        "128": "icon.png"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Analyze Game",
+        "default_icon": "icon.png"
+    },
+    "permissions": [
+        "activeTab"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.chess.com/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://wintrchess.com/analysis"
+            ],
+            "js": [
+                "wintrchess_script.js"
+            ]
+        }
+    ]
+}
